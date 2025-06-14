@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(45deg, #ffbbd4, #ff9a8b); /* Soft pink gradient background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+
+        form {
+            background-color: #ffffff; /* White background for the form */
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            width: 320px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        form:hover {
+            transform: scale(1.05); /* Slight scaling on hover */
+        }
+
+        h2 {
+            color: #ff6347; /* Tomato color for heading */
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        h3 {
+            color: #ff6347; /* Tomato red for messages */
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 12px 0;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1.1em;
+            background-color: #f8f8f8;
+            transition: border 0.3s ease, background-color 0.3s ease;
+        }
+
+        input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
+            border-color: #ff6347; /* Focus border color */
+            background-color: #fff;
+            outline: none;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50; /* Green color for the submit button */
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1em;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049; /* Darker green when hovered */
+            transform: translateY(-2px); /* Slight raise effect */
+        }
+
+        .message-container {
+            margin-top: 20px;
+        }
+
+        .message-container h3 {
+            margin: 5px 0;
+        }
+
+    </style>
+</head>
+<body>
+    <form action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+        <h2>Registration</h2>
+        <input type="text" name="first_name" placeholder="First Name" required>
+        <br>
+        <input type="text" name="last_name" placeholder="Last Name" required>
+        <br>
+        <input type="text" name="username" placeholder="Username" required>
+        <br>
+        <input type="email" name="email" placeholder="Email" required>
+        <br>
+        <input type="password" name="password1" placeholder="Password" required>
+        <br>
+        <input type="password" name="password2" placeholder="Confirm Password" required>
+        <br>
+        <input type="submit" value="Register">
+        <br>
+    </form>
+
+    <div class="message-container">
+        {% if messages %}
+            {% for message in messages %}
+                <h3>{{ message }}</h3>
+            {% endfor %}
+        {% endif %}
+    </div>
+</body>
+</html>

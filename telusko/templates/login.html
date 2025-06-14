@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff; /* Light background color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333; /* Default text color */
+        }
+
+        form {
+            background-color: #ffffff; /* White background for the form */
+            border-radius: 12px;
+            padding: 35px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            width: 320px;
+            text-align: center;
+        }
+
+        h3 {
+            color: black; /* Black color for messages */
+            font-size: 1.2em;
+            margin-top: 0;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 12px 0;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1.1em;
+            background-color: #f1f1f1;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus, input[type="password"]:focus {
+            border-color: #ff6347; /* Red color for focus */
+            background-color: #ffffff; /* White background on focus */
+            outline: none;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50; /* Green color for the submit button */
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            font-size: 1.1em;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s ease;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049; /* Darker green when hovered */
+            transform: translateY(-2px); /* Slight lift effect */
+        }
+
+        .message-container {
+            width: 320px; /* Same width as form */
+            text-align: center;
+            margin-top: 15px; /* Space between form and messages */
+        }
+
+        .message-container h3 {
+            margin: 5px 0;
+            color: black; /* Error messages in black */
+        }
+    </style>
+</head>
+<body>
+    <form action="login" method="post">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Username" required>
+        <br>
+        <input type="password" name="password1" placeholder="Password" required>
+        <br>
+        <input type="submit" value="Login">
+        <br>
+    </form>
+
+    <div class="message-container">
+        {% for message in messages %}
+            <h3>{{ message }}</h3>
+        {% endfor %}
+    </div>
+</body>
+</html>
