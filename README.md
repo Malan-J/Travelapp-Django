@@ -1,3 +1,47 @@
+# Telusko Django Travel App
+
+The **Telusko Django App** is a travel booking platform where users can explore destinations, view details about places, and discover special offers on travel packages. It is built using Django and PostgreSQL, with a clean interface for both users and admins.
+
+---
+
+## ✈️ Features
+
+- **Add & View Destinations**  
+  Admins can add travel destinations with descriptions, images, and pricing. Users can browse through a list of places to visit.
+
+- **Place Name & Descriptions**  
+  Each destination includes:
+  - Name of the place
+  - Image of the location
+  - Short description
+  - Price or cost per package
+
+- **Special Offers**  
+  Highlight travel destinations with special discounts. Offers can be marked and displayed on the homepage.
+
+- **Dynamic Homepage**  
+  Homepage displays a list of available travel spots with promotional banners and trending places.
+
+- **Admin Panel**  
+  A powerful admin panel to add/edit/delete:
+  - Travel destinations
+  - Special offers
+  - User management
+
+---
+
+.
+
+---
+
+## 🔧 Tech Stack
+
+- **Backend:** Django (Python)
+- **Frontend:** HTML, CSS, Bootstrap
+- **Database:** PostgreSQL
+- **Admin Tools:** Django Admin
+
+---
 ## How to Run the Project Locally
 
 ### Step 1: Clone the Repository
